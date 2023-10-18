@@ -9,3 +9,6 @@
 - Grad-CAM generator. ✔
 
 Download models from here: https://drive.google.com/drive/folders/1q2EjdQVFh0qWr6rIalIYoVSoDqc87BKi?usp=sharing
+
+** Create a Folder named "models" and put all models within it.
+Don't rename the files. **
