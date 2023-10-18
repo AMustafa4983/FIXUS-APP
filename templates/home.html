@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+    <title>X-ray Image Uploader</title>
+</head>
+
+<body>
+    <div class="container">
+        <form action="/process_images" method="POST" enctype="multipart/form-data">
+            <h1>Choose X-ray Type</h1>
+
+            <div class="toggle-buttons">
+                <input type="radio" name="xray_type" id="foot" value="foot" checked>
+                <label for="foot" class="toggle-btn">Foot</label>
+
+                <input type="radio" name="xray_type" id="ankle" value="ankle">
+                <label for="ankle" class="toggle-btn">Ankle</label>
+            </div>
+
+            <input type="hidden" id="selected_xray_type" name="selected_xray_type">
+
+            <h2>Upload Images</h2>
+
+            <div class="upload-container">
+                <div class="upload-item">
+                    <label for="ap_view">AP View</label>
+                    <input type="file" name="ap_view" id="ap_view" accept="image/*" required>
+                </div>
+
+                <div class="upload-item">
+                    <label for="lateral_view">Lateral View</label>
+                    <input type="file" name="lateral_view" id="lateral_view" accept="image/*" required>
+                </div>
+
+                <div class="upload-item">
+                    <label for="oblique_view">Oblique View</label>
+                    <input type="file" name="oblique_view" id="oblique_view" accept="image/*" required>
+                </div>
+            </div>
+
+            <input type="submit" value="Submit Images" onclick="showLoadingScreen()">
+        </form>
+    </div>
+    <!-- Loading Overlay -->
+    <div id="overlay">
+        <div class="loading-message">Processing...</div>
+        <div class="loader"></div>
+    </div>
+</body>
+
+</html>
